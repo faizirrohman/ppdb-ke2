@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\PendaftarController;
+use App\Http\Controllers\PrintController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,17 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/', [SiswaController::class, 'home'])->name('home');
 
 Route::prefix('/siswa')->name('siswa.')->group(function () {
     Route::get('/index', [SiswaController::class, 'index'])->name('index');
-    Route::get('/create', [SiswaController::class, 'create'])->name('create');
     Route::post('/store', [SiswaController::class, 'store'])->name('store');
-    Route::get('/edit/{id}', [SiswaController::class, 'edit'])->name('edit');
-    Route::put('/update/{id}', [SiswaController::class, 'update'])->name('update');
-    Route::delete('/delete/{id}', [SiswaController::class, 'destroy'])->name('destroy');
+    Route::get('/print/{id}', [PrintController::class, 'index'])->name('print');
+});
+
+Route::prefix('/admin')->name('admin.')->group(function () {
+    Route::get('/index', [PendaftarController::class, 'index'])->name('index');
+    Route::get('/edit/{id}', [PendaftarController::class, 'edit'])->name('edit');
+    Route::put('/update/{id}', [PendaftarController::class, 'update'])->name('update');
+    Route::delete('/delete/{id}', [PendaftarController::class, 'destroy'])->name('destroy');
+    Route::get('/print/{id}', [PendaftarController::class, 'print'])->name('print');
+    Route::get('/print', [PendaftarController::class, 'printSemua'])->name('printSemua');
 });

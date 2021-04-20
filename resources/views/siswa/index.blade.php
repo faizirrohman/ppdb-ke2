@@ -24,7 +24,7 @@
             <div class="col-md-12">
                   <div class="main-card mb-3 card card-body">
                         <div class="table-responsive">
-                              <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="myTable">
+                              <table class="table table-bordered">
                                     <thead>
                                           <tr>
                                                 <th>No</th>
@@ -54,16 +54,9 @@
                                                 <td>{{ $items->kelas }}</td>
                                                 <td>{{ $items->jurusan }}</td>
                                                 <td>
-                                                      <form action="{{ route('siswa.destroy', $items->id) }}" method="post">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger">
-                                                                  Hapus
-                                                            </button>
-                                                            <a href="{{ route('siswa.edit', $items->id) }}" class="btn-wide btn btn-outline-success">
-                                                                  Edit
-                                                            </a>
-                                                      </form>
+                                                      <a href="{{ route('siswa.print', $items->id) }}" target="blank" class="btn btn-success btn-xs">
+                                                            Cetak
+                                                      </a>
                                                 </td>
                                           </tr>
                                           @endforeach
@@ -73,6 +66,7 @@
                   </div>
             </div>
       </div>
+
 </div>
 
 {{-- MODAL --}}

@@ -18,11 +18,25 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('admin.index') }}">Pendaftar</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="">Formulir Pendaftaran</a>
-                  </li>
+                </ul>
+              </div>
+              
+              <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle text-white d-flex align-items-center" href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <div class="pr-4 font-13 font-w400">Noer Faizir Rohman</div>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editProfile"><i class="kejar-profile"></i> Ganti Foto Profil</a>
+                      </li>
+                      <li>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updatePassword"><i class="kejar-password"></i> Ganti Password</a>
+                      </li>
+                      <li>
+                            <a class="dropdown-item" href="http://localhost:8000" data-toggle="modal" data-target="#logout"><i class="kejar-log-out"></i> Log Out</a>
+                      </li>
                 </ul>
               </div>
             </div>
